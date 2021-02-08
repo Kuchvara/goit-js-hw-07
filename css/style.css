@@ -1,0 +1,22 @@
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul#gallery {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gallery__item {
+  display: inline-block;
+  width: calc((100% - 2 * 30px) / 3);
+
+  height: 152px;
+}
+
+.gallery__item:not(:last-child) {
+  margin-right: 30px;
+}
