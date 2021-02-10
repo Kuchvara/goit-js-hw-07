@@ -19,3 +19,35 @@
 
 // <div id="boxes"></div>
 
+const controlsRef = document.querySelector('#controls');
+const boxesRef = document.querySelector('#boxes')
+const inputNumberRef = controlsRef.querySelector('input[type="number"]')
+const renderBtnRef = controlsRef.querySelector('button[data-action="render"]')
+const destroyBtnRef = controlsRef.querySelector('button[data-action="destroy"]')
+
+
+function createBoxes(amount) {
+    amount = Number(inputNumberRef.value);
+    for (let i = 0; i < amount; i += 1)
+{boxesRef.insertAdjacentHTML("beforeend", `<div style="width: ${30 + (10 * i)}px;
+ height: ${30 + (10 * i)}px; background-color: ${get_rand_color()};"></div>`);
+    }
+};
+
+function destroyBoxes() {
+    inputNumberRef.value = null;
+    boxesRef.innerHTML = null;
+}
+
+renderBtnRef.addEventListener('click', createBoxes);
+destroyBtnRef.addEventListener('click', destroyBoxes);
+
+// ==================================================
+function get_rand_color()
+{
+    var color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
+    while(color.length < 6) {
+        color = "0" + color;
+    }
+    return "#" + color;
+}
