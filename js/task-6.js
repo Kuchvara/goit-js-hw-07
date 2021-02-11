@@ -13,11 +13,22 @@
 const inputRef = document.querySelector('#validation-input');
 
 
-
 const validationCheck = event => {
-    event.target.value.length < Number(inputRef.dataset.length) ?
-    inputRef.classList.add('invalid') : inputRef.classList.replace('invalid', 'valid');
+    if (event.target.value.length === Number(inputRef.dataset.length))
+    {
+        inputRef.classList = null;
+        inputRef.classList.add('valid')
+    }
+    else {
+        inputRef.classList = null;
+        inputRef.classList.add('invalid')
+    }
 }
+
+// const validationCheck = event => {
+//     event.target.value.length !== Number(inputRef.dataset.length) ?
+//     inputRef.classList.add('invalid') : inputRef.classList.replace('invalid', 'valid');
+// }
 
 // також модна через фокус і блур зробити з додатковими функціями, робив виходячи з того, що чендж працює якраз при втраті фокуса на елементі
 

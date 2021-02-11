@@ -28,8 +28,16 @@ const ingredients = [
 const ulIngredientsRef = document.querySelector('ul#ingredients');
 
 const addIngredients = ingredients.map(item => {
-const liRef = document.createElement('li');
-    liRef.textContent = item;
-    ulIngredientsRef.appendChild(liRef)
- return ulIngredientsRef
+    const liRef = document.createElement('li');
+  liRef.textContent = item; 
+  return liRef
 });
+
+ulIngredientsRef.append(...addIngredients)
+
+// const addIngredients = ingredients.map(item => {
+//     const liRef = document.createElement('li');
+//     liRef.textContent = item;
+//     ulIngredientsRef.appendChild(liRef)
+//  return ulIngredientsRef
+// });

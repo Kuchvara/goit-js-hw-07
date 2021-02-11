@@ -39,8 +39,15 @@ const galleryRef = document.querySelector('ul#gallery');
 //     return galleryRef;
 // });
 
+// const addImages = images.map(obj => {
+//     galleryRef.insertAdjacentHTML("beforeend", `<li class="gallery__item"><img src="${obj.url}" alt="${obj.alt}"></li>`)
+//     return galleryRef;
+// });
+
 const addImages = images.map(obj => {
-    galleryRef.insertAdjacentHTML("beforeend", `<li class="gallery__item"><img src="${obj.url}" alt="${obj.alt}"></li>`)
-    return galleryRef;
+    const imgToAdd = `<li class="gallery__item"><img src="${obj.url}" alt="${obj.alt}"></li>`
+    return imgToAdd;
 });
+
+galleryRef.insertAdjacentHTML("beforeend", addImages.join(' '));
 
